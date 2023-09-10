@@ -55,6 +55,12 @@ EOL
 }
 
 uninstall() {
+    # Check if the service is installed
+    if [ ! -f "/etc/systemd/system/tunnel.service" ]; then
+        echo "The service is not installed."
+        return
+    fi
+
     # Stop and disable the service
     sudo systemctl stop tunnel.service
     sudo systemctl disable tunnel.service
@@ -62,7 +68,9 @@ uninstall() {
     # Remove service file
     sudo rm /etc/systemd/system/tunnel.service
 
+    echo "Uninstallation completed successfully."
 }
+
 
 # Check the argument provided by the user
 clear
