@@ -1,5 +1,12 @@
 #!/bin/bash
 
+check_dependencies() {
+    if ! command -v wget &> /dev/null; then
+        echo "wget is not installed. Installing..."
+        sudo apt-get install wget
+    fi
+}
+
 install() {
     # Download and install RTT
     wget "https://raw.githubusercontent.com/radkesvat/ReverseTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh
@@ -74,6 +81,7 @@ uninstall() {
 
 
 # Main menu
+check_dependencies
 clear
 echo " ----------------ReverseTlsTunnel-----------------------"
 echo "1) Install"
