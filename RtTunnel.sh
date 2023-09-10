@@ -20,9 +20,9 @@ configure_arguments() {
     sni=${sni:-splus.ir}
 
     if [ "$server_choice" == "2" ]; then
-        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni"
+        arguments="--iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni --terminate:24"
     elif [ "$server_choice" == "1" ]; then
-        arguments="--iran --lport:23-65535 --sni:$sni --password:123"
+        arguments="--lport:23-65535 --sni:$sni --password:123 --terminate:24"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
@@ -53,7 +53,7 @@ Description=my tunnel service
 [Service]
 User=root
 WorkingDirectory=/root
-ExecStart=/root/RTT $arguments --terminate:24
+ExecStart=/root/RTT $arguments
 Restart=always
 
 [Install]
