@@ -80,6 +80,7 @@ uninstall() {
 
     # Remove service file
     sudo rm /etc/systemd/system/tunnel.service
+    sudo systemctl reset-failed
     sudo rm RTT
     sudo rm install.sh
 
