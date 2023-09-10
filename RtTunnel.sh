@@ -67,6 +67,7 @@ uninstall() {
 
     # Remove service file
     sudo rm /etc/systemd/system/tunnel.service
+    sudo rm RTT
 
     echo "Uninstallation completed successfully."
 }
