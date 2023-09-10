@@ -22,8 +22,7 @@ install() {
     fi
 
     # Ask the user to choose a server
-    echo "Which server do you want to use? (Enter 'iran' or 'foreign') : "
-    read server_choice
+    read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
 
     # Ask the user for SNI or default to splus.ir
     echo "Please Enter SNI (default : splus.ir): "
@@ -31,9 +30,9 @@ install() {
     sni=${sni:-splus.ir}
 
     # Determine arguments based on user's choice
-    if [ "$server_choice" == "foreign" ]; then
+    if [ "$server_choice" == "2" ]; then
         arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni"
-    elif [ "$server_choice" == "iran" ]; then
+    elif [ "$server_choice" == "1" ]; then
         arguments="--iran --lport:23-65535 --sni:$sni --password:123"
     else
         echo "Invalid choice. Please enter 'iran' or 'foreign'."
