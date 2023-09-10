@@ -74,7 +74,7 @@ uninstall() {
 
 # Check the argument provided by the user
 clear
-echo " ----------------ReverseTlsTunnel-----------------------"
+echo " ---1-------------ReverseTlsTunnel-----------------------"
 echo "1) Install"
 echo "2) Uninstall"
 echo "0) Exit"
