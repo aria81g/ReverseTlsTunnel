@@ -17,10 +17,10 @@ install_rtt() {
 configure_arguments() {
     read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
     read -p "Please Enter SNI (default : splus.ir): " sni
-    read -p "Please Enter (IRAN IP) : " server_ip
     sni=${sni:-splus.ir}
 
     if [ "$server_choice" == "2" ]; then
+        read -p "Please Enter (IRAN IP) : " server_ip
         arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni --terminate:24"
     elif [ "$server_choice" == "1" ]; then
         arguments="--iran --lport:443-2053 --sni:$sni --password:123 --terminate:24"
