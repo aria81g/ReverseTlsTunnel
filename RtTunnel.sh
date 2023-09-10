@@ -84,10 +84,13 @@ uninstall() {
     echo "Uninstallation completed successfully."
 }
 
+#ip
+myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '{ if($2 != "127.0.0.1") print $2 }')
+
 # Main menu
 check_dependencies
 clear
-echo "Created by --> Peyman "
+echo "C/B --> Peyman --- Your IP is: $myip "
 echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install"
 echo "2) Uninstall"
