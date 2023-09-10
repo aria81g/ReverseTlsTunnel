@@ -25,9 +25,9 @@ install() {
 
     # Determine arguments based on user's choice
     if [ "$server_choice" == "foreign" ]; then
-        arguments="./RTT --kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni"
+        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni"
     elif [ "$server_choice" == "iran" ]; then
-        arguments="./RTT --iran --lport:23-65535 --sni:$sni --password:123"
+        arguments="--iran --lport:23-65535 --sni:$sni --password:123"
     else
         echo "Invalid choice. Please enter 'iran' or 'foreign'."
         exit 1
