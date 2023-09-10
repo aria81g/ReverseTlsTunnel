@@ -65,6 +65,7 @@ uninstall() {
 }
 
 # Check the argument provided by the user
+clear
 while true; do
     echo "1) Install"
     echo "2) Uninstall"
