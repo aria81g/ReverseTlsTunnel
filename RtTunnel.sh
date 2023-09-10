@@ -91,7 +91,7 @@ uninstall() {
 check_dependencies
 clear
 echo "Created by --> Peyman "
-echo " -1-------#- Reverse Tls Tunnel -#--------"
+echo " -2-------#- Reverse Tls Tunnel -#--------"
 echo "1) Install"
 echo "2) Uninstall"
 echo "0) Exit"
