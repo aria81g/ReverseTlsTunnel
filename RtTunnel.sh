@@ -40,7 +40,7 @@ Description=my tunnel service
 [Service]
 User=root
 WorkingDirectory=/root
-ExecStart=/root/RTT $arguments
+ExecStart=/root/RTT $arguments --terminate:24
 Restart=always
 
 [Install]
