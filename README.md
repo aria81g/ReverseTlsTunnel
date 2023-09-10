@@ -6,10 +6,13 @@
 - از پورت 23 تا 65535 میتوانید استفاده کنید 
 - پورت 1 تا 22 قابل استفاده نیستند 
 
-![1](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/1.jpg)
+
 
 ## Install 
 
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/ReverseTlsTunnel/main/RtTunnel.sh)
 ```
+
+
+![1](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/1.jpg)
