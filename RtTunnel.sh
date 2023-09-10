@@ -83,7 +83,7 @@ uninstall() {
 # Main menu
 check_dependencies
 clear
-echo " --------#-Reverse--Tls--Tunnel-#--------"
+echo " --------#-Reverse Tls Tunnel-#--------"
 echo "1) Install"
 echo "2) Uninstall"
 echo "0) Exit"
