@@ -15,7 +15,7 @@ install_rtt() {
 
 # Function to configure arguments based on user's choice
 configure_arguments() {
-    read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
+    read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Kharej) : " server_choice
     read -p "Please Enter SNI (default : splus.ir): " sni
     sni=${sni:-splus.ir}
 
