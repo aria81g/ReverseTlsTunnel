@@ -43,6 +43,7 @@ configure_arguments() {
 
 # Function to handle installation
 install() {
+    check_dependencies
     check_installed
     install_rtt
     # Change directory to /etc/systemd/system
@@ -96,7 +97,6 @@ uninstall() {
 myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '{ if($2 != "127.0.0.1") print $2 }')
 
 # Main menu
-check_dependencies
 clear
 echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
