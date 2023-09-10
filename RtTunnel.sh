@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Function to check if wget is installed, and install it if not
 check_dependencies() {
     if ! command -v wget &> /dev/null; then
         echo "wget is not installed. Installing..."
@@ -7,9 +8,30 @@ check_dependencies() {
     fi
 }
 
-install() {
-    # Download and install RTT
+# Function to download and install RTT
+install_rtt() {
     wget "https://raw.githubusercontent.com/radkesvat/ReverseTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh
+}
+
+# Function to configure arguments based on user's choice
+configure_arguments() {
+    read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
+    read -p "Please Enter SNI (default : splus.ir): " sni
+    sni=${sni:-splus.ir}
+
+    if [ "$server_choice" == "2" ]; then
+        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni"
+    elif [ "$server_choice" == "1" ]; then
+        arguments="--iran --lport:23-65535 --sni:$sni --password:123"
+    else
+        echo "Invalid choice. Please enter '1' or '2'."
+        exit 1
+    }
+}
+
+# Function to handle installation
+install() {
+    install_rtt
 
     # Change directory to /etc/systemd/system
     cd /etc/systemd/system
@@ -21,37 +43,22 @@ install() {
         exit 1
     fi
 
-    # Ask the user to choose a server
-    read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
-
-    # Ask the user for SNI or default to splus.ir
-    read -p "Please Enter SNI (default : splus.ir): " sni
-    sni=${sni:-splus.ir}
-
-    # Determine arguments based on user's choice
-    if [ "$server_choice" == "2" ]; then
-        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni"
-    elif [ "$server_choice" == "1" ]; then
-        arguments="--iran --lport:23-65535 --sni:$sni --password:123"
-    else
-        echo "Invalid choice. Please enter 'iran' or 'foreign'."
-        exit 1
-    fi
+    configure_arguments
 
     # Create a new service file named tunnel.service
     cat <<EOL > tunnel.service
-[Unit]
-Description=my tunnel service
+    [Unit]
+    Description=my tunnel service
 
-[Service]
-User=root
-WorkingDirectory=/root
-ExecStart=/root/RTT $arguments --terminate:24
-Restart=always
+    [Service]
+    User=root
+    WorkingDirectory=/root
+    ExecStart=/root/RTT $arguments --terminate:24
+    Restart=always
 
-[Install]
-WantedBy=multi-user.target
-EOL
+    [Install]
+    WantedBy=multi-user.target
+    EOL
 
     # Reload systemctl daemon and start the service
     sudo systemctl daemon-reload
@@ -59,6 +66,7 @@ EOL
     sudo systemctl enable tunnel.service
 }
 
+# Function to handle uninstallation
 uninstall() {
     # Check if the service is installed
     if [ ! -f "/etc/systemd/system/tunnel.service" ]; then
@@ -76,7 +84,6 @@ uninstall() {
 
     echo "Uninstallation completed successfully."
 }
-
 
 # Main menu
 check_dependencies
