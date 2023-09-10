@@ -17,6 +17,7 @@ install_rtt() {
 configure_arguments() {
     read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
     read -p "Please Enter SNI (default : splus.ir): " sni
+    read -p "Please Enter (IRAN IP) : " server_ip
     sni=${sni:-splus.ir}
 
     if [ "$server_choice" == "2" ]; then
@@ -35,13 +36,6 @@ install() {
 
     # Change directory to /etc/systemd/system
     cd /etc/systemd/system
-
-    # Determine server IP using curl and grep
-    server_ip=$(ip -4 addr show | awk '/inet/ && !/127.0.0.1/ {gsub(/\/[0-9]+/, "", $2); print $2}')
-    if [ -z "$server_ip" ]; then
-        echo "Unable to determine server IP. Please check your internet connection."
-        exit 1
-    fi
 
     configure_arguments
 
