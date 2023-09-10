@@ -20,9 +20,9 @@ configure_arguments() {
     sni=${sni:-splus.ir}
 
     if [ "$server_choice" == "2" ]; then
-        arguments="--iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni --terminate:24"
+        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:123 --sni:$sni --terminate:24"
     elif [ "$server_choice" == "1" ]; then
-        arguments="--lport:443-2053 --sni:$sni --password:123 --terminate:24"
+        arguments="--iran --lport:443-2053 --sni:$sni --password:123 --terminate:24"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
@@ -91,7 +91,7 @@ uninstall() {
 check_dependencies
 clear
 echo "Created by --> Peyman "
-echo " -3-------#- Reverse Tls Tunnel -#--------"
+echo " -0-------#- Reverse Tls Tunnel -#--------"
 echo "1) Install"
 echo "2) Uninstall"
 echo "0) Exit"
