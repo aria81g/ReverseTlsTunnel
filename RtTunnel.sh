@@ -66,24 +66,24 @@ uninstall() {
 
 # Check the argument provided by the user
 clear
-while true; do
-    echo "1) Install"
-    echo "2) Uninstall"
-    echo "0) Exit"
-    read -p "Please choose: " choice
 
-    case $choice in
-        1)
-            install
-            ;;
-        2)
-            uninstall
-            ;;
-        0)
-            exit
-            ;;
-        *)
-            echo "Invalid choice. Please try again."
-            ;;
-    esac
-done
+echo "1) Install"
+echo "2) Uninstall"
+echo "0) Exit"
+
+read -p "Please choose: " choice
+
+case $choice in
+    1)
+        install
+        ;;
+    2)
+        uninstall
+        ;;
+    0)
+        exit
+        ;;
+    *)
+        echo "Invalid choice. Please try again."
+        ;;
+esac
