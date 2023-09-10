@@ -90,7 +90,7 @@ myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '{ if($2 != 
 # Main menu
 check_dependencies
 clear
-echo "By --> * Github.com/Ptechgithub * "
+echo "By --> Peyman * Github.com/Ptechgithub * "
 echo "Your IP is: ($myip) "
 echo ""
 echo " --------#- Reverse Tls Tunnel -#--------"
