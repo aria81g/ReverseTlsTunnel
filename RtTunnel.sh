@@ -8,6 +8,14 @@ check_dependencies() {
     fi
 }
 
+#Check installed service
+check_installed() {
+    if [ -f "/etc/systemd/system/tunnel.service" ]; then
+        echo "The service is already installed."
+        exit 1
+    fi
+}
+
 # Function to download and install RTT
 install_rtt() {
     wget "https://raw.githubusercontent.com/radkesvat/ReverseTlsTunnel/master/install.sh" -O install.sh && chmod +x install.sh && bash install.sh
@@ -35,8 +43,8 @@ configure_arguments() {
 
 # Function to handle installation
 install() {
+    check_installed
     install_rtt
-
     # Change directory to /etc/systemd/system
     cd /etc/systemd/system
 
