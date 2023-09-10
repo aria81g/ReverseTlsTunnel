@@ -21,7 +21,7 @@ install() {
     # Ask the user for SNI or default to splus.ir
     echo "Enter SNI (default is splus.ir): "
     read sni
-    sni=${sni:-splus.ir}
+    sni="splus.ir"
 
     # Determine arguments based on user's choice
     if [ "$server_choice" == "foreign" ]; then
