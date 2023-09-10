@@ -6,7 +6,7 @@
 - از پورت 23 تا 65535 میتوانید استفاده کنید 
 - پورت 1 تا 22 قابل استفاده نیستند 
 
-![1]()
+![1](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/1.jpg)
 
 ## Install 
 
