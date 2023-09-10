@@ -25,8 +25,7 @@ install() {
     read -p "Which server do you want to use? (Enter '1' for Iran or '2' for Foreign) : " server_choice
 
     # Ask the user for SNI or default to splus.ir
-    echo "Please Enter SNI (default : splus.ir): "
-    read sni
+    read -p "Please Enter SNI (default : splus.ir): " sni
     sni=${sni:-splus.ir}
 
     # Determine arguments based on user's choice
