@@ -95,7 +95,7 @@ echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install"
 echo "2) Uninstall"
 echo "0) Exit"
-
+echo " ------------------------------------------------------"
 read -p "Please choose: " choice
 
 case $choice in
