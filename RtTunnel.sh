@@ -19,7 +19,7 @@ install() {
     read server_choice
 
     # Ask the user for SNI or default to splus.ir
-    echo "Enter SNI (default is splus.ir): "
+    echo "Please Enter SNI (default is : splus.ir): "
     read sni
     sni=${sni:-splus.ir}
 
