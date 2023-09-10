@@ -73,7 +73,7 @@ uninstall() {
 }
 
 
-# Check the argument provided by the user
+# Main menu
 clear
 echo " ----------------ReverseTlsTunnel-----------------------"
 echo "1) Install"
